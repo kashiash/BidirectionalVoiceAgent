@@ -1,0 +1,14 @@
+[project]
+name = "bidirectionvoicechatdemo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aws-sdk-bedrock-runtime==0.2.0",
+    "fastapi>=0.123.9",
+    "prompt-toolkit>=3.0.52",
+    "pyaudio>=0.2.14",
+    "strands-agents==1.19.0",
+    "uvicorn[standard]>=0.38.0",
+]

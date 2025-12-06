@@ -1,0 +1,12 @@
+[project]
+name = "bidirectionvoicechatdemo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "bedrock-agentcore==1.1.1",
+    "pyaudio>=0.2.14",
+    "rx>=3.2.0",
+    "uvicorn[standard]>=0.38.0",
+]
