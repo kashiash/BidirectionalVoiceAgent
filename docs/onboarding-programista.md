@@ -1,4 +1,4 @@
-# BI-Directional Voice Agent
+# Onboarding dla Programisty
 
 ## Wprowadzenie
 
@@ -13,8 +13,6 @@ Projekt składa się z trzech głównych komponentów:
 1. **Backend** - WebSocket endpoint (Python/FastAPI)
 2. **CDK** - Infrastructure as Code dla AWS (TypeScript)
 3. **CLI** - Aplikacja kliencka do testowania (Python)
-
-For more information, please refer to my article [BiDirectional Voice Agent with AgentCore Runtime/ Nova2 Sonic / Strands Agents](https://medium.com/@itsuki.enjoy/bidirectional-voice-agent-with-agentcore-runtime-nova2-sonic-strands-agents-9f86371d0641)
 
 ## Wymagania wstępne
 
@@ -57,6 +55,7 @@ For more information, please refer to my article [BiDirectional Voice Agent with
 - Uprawnienia do ECR (Elastic Container Registry)
 - Uprawnienia do CloudFormation (dla CDK)
 
+
 ## Struktura projektu
 
 ```text
@@ -76,6 +75,7 @@ BidirectionalVoiceAgent/
     │   └── main.py   # CLI do testowania
     └── pyproject.toml
 ```
+
 
 ## Konfiguracja środowiska deweloperskiego
 
@@ -178,6 +178,7 @@ uv sync
 - `--endpoint` - niestandardowy endpoint WebSocket (domyślnie: `ws://localhost:8080/ws`)
 - `--agent_arn` - ARN AgentCore Runtime (jeśli podany, używa tego zamiast endpoint)
 
+
 ### 3. CDK - Setup
 
 ```bash
@@ -221,6 +222,7 @@ npx cdk destroy   # Usuń stack
 - `MODEL_ID` - ID modelu Bedrock (domyślnie: "amazon.nova-2-sonic-v1:0")
 - `REGION_NAME` - region AWS (domyślnie: "ap-northeast-1")
 
+
 ### CLI (`cli/app/main.py`)
 
 **Klasy główne:**
@@ -237,6 +239,7 @@ npx cdk destroy   # Usuń stack
 - `bidi_connection_restart` - restart połączenia
 - `bidi_error` - błędy
 
+
 ### CDK (`cdk/lib/backend.ts`)
 
 **Główne zasoby:**
@@ -251,6 +254,7 @@ npx cdk destroy   # Usuń stack
 - CloudWatch Logs (logowanie)
 - Bedrock (wywoływanie modeli)
 - X-Ray (tracing)
+
 
 ## Workflow deweloperski
 
@@ -335,6 +339,7 @@ npx cdk destroy   # Usuń stack
    - Sprawdź firewall/security groups
    - Sprawdź logi serwera
 
+
 ## Rozszerzanie funkcjonalności
 
 ### Dodawanie narzędzi (tools) do agenta
@@ -365,6 +370,7 @@ Zmień zmienne środowiskowe w:
 
 **Ważne:** Wszystkie trzy miejsca muszą mieć zgodne wartości!
 
+
 ### Dodawanie nowych eventów
 
 W CLI możesz obsłużyć nowe typy eventów w metodzie `_process_responses()` klasy `AudioChatManager`.
@@ -384,14 +390,4 @@ W razie problemów sprawdź:
 1. Logi aplikacji
 2. AWS CloudWatch Logs (po deployu)
 3. Dokumentację poszczególnych komponentów w `README.md` w każdym katalogu
-4. [Onboarding dla Instalatora](./docs/onboarding-instalator.md) - szczegółowy przewodnik instalacji
 
-## Dokumentacja dodatkowa
-
-For set up, local testing, and deployment, please refer to individual part:
-
-1. [Backend Websocket Endpoint](./backend/README.md)
-2. [CDK](./cdk/README.md)
-3. [CLI App](./cli/README.md)
-
-![](./VoiceAgent.jpg)
